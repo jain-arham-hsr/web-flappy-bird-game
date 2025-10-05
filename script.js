@@ -24,14 +24,14 @@ document.body.onkeydown = function handleKeyPress(e) {
     if (e.keyCode == "38") {
       player.yVel = 9;
       document.getElementById("flappy-bird").src =
-        "../static/Flappy Bird (flapped).png";
+        "assets/Flappy Bird (flapped).png";
     }
   }
 };
 
 document.body.onkeyup = function () {
   keyDownFired = false;
-  document.getElementById("flappy-bird").src = "../static/Flappy Bird.png";
+  document.getElementById("flappy-bird").src = "assets/Flappy Bird.png";
 };
 
 var pause = false;
@@ -47,7 +47,7 @@ function update() {
   } else {
     player.y = 592;
   }
-  player.yVel -= 0.8;
+  player.yVel -= 0.5;
   pipes.forEach(function (pipe) {
     pipe.x -= 4;
   });
@@ -83,7 +83,7 @@ function loop(timestamp) {
     document.getElementById("score").style.animation =
       "color-change 0.75s infinite";
   } else {
-	requestAnimationFrame(loop);
+    requestAnimationFrame(loop);
   }
 }
 
@@ -108,7 +108,7 @@ class Pipe {
     div.id = this.id;
     var img = document.createElement("IMG");
     img.className = "pipe-img";
-    img.src = "../static/Pipe (" + this.position + ").png";
+    img.src = "assets/Pipe (" + this.position + ").png";
 
     div.appendChild(img);
     document.getElementById("pipes").appendChild(div);
